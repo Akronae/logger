@@ -1,3 +1,3 @@
 export * from './json';
-export * from './pretty';
 export * from './nest';
+export * from './pretty';

@@ -8,7 +8,9 @@ import {
   createLogger as winstonCreateLogger,
 } from 'winston';
 
+export * as formats from '@/src/formats';
 export * as transports from '@/src/transports';
+
 export { Logger } from 'winston';
 
 export function createLogger(options?: LoggerOptions) {
