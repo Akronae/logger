@@ -6,7 +6,6 @@
   "files": [
     "dist"
   ],
-  "packageManager": "yarn@4.11.0",
   "type": "module",
   "main": "./dist/src/index.cjs",
   "module": "./dist/src/index.mjs",
@@ -36,7 +35,7 @@
   "scripts": {
     "build": "tsx ./scripts/build.ts",
     "lint": "prettier --log-level silent --write . && eslint . --fix",
-    "prepare": "yarn husky install",
+    "prepare": "yarn husky",
     "test": "vitest run --reporter verbose",
     "v:major": "npm version major -m \"chore: bump major to %s\"",
     "v:minor": "npm version minor -m \"chore: bump minor to %s\"",
@@ -64,5 +63,6 @@
     "typescript-eslint": "8.47.0",
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "4.0.13"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }
