@@ -1,0 +1,200 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`index > should do basic logging 1`] = `
+"[logger] log level set to 'info'. Ignoring: [ 'debug' ]
+{"level":"error","message":"error!"}
+{"level":"error","message":"error! again error! again,,,,,,,"}
+{"level":"error","message":"error! again again","err":{"stack":"Error: error! again\\n    at <file>","message":"error! again"},"val":{"c":43}}
+{"level":"error","message":{"error":{"stack":"Error: error\\n    at <file>","message":"error"}}}
+{"level":"error","message":{"err":{"stack":"Error: error\\n    at <file>","message":"error"}}}
+{"level":"error","message":{"lol":{"stack":"Error: error\\n    at <file>","message":"error"},"val":{"c":43}}}
+{"level":"error","message":{"error":{"stack":"Error: error!!!\\n    at <file>","message":"error!!!"}}}
+{"level":"info","message":{"a":{"b":[{"c":1},{"d":2},{"e":{"f":2,"g":true,"ee":"dssdsdsdds"}}]}}}
+{"level":"warn","message":"warning!","a":{"b":[{"c":1},{"d":2},{"e":{"f":2,"g":true,"ee":"dssdsdsdds"}}]}}
+{"level":"error","message":{"error":{"stack":"Error: this is a\\n    at <file>","message":"line should read straight"}}}}}
+[INFO]: MyService hey!
+[INFO]: MyService { ho: 2 }
+[INFO]: MyService { ho: 2 } { ha: 233 }
+[INFO]: MyService lalalalal [ { ho: 2 }, { ha: 233 } ]
+[INFO]: MyService lalalalal [ { ho: 2 }, { ha: 233 } ]
+{"level":"info","message":"MyService dsdsds!"}
+{"level":"info","message":"MyService","ho":2}
+{"level":"info","message":"MyService","ho":2,"ha":233}
+{"level":"info","message":"MyService ezfefz","ho":2,"ha":233}
+{"0":{"ho":2},"1":{"ha":233},"level":"info","message":"MyService fezefe"}
+"
+`;
+
+exports[`index > sould do dev logging 1`] = `
+"[logger] log level set to 'info'. Ignoring: [ 'debug' ]
+[ERROR]: file.ts error!
+[ERROR]: file.ts error! again error! again,,,,,,, Error: error! again,,,,,,,
+    at <file>
+    at <file>
+    at <file>
+    at <file>
+[ERROR]: file.ts error! again again {
+  err: Error: error! again
+      at <file>
+      at <file>
+      at <file>
+      at <file>,
+  val: { c: 43 }
+}
+[ERROR]: file.ts {
+  error: Error: error
+      at <file>
+      at <file>
+      at <file>
+      at <file>
+}
+[ERROR]: file.ts {
+  err: Error: error
+      at <file>
+      at <file>
+      at <file>
+      at <file>
+}
+[ERROR]: file.ts {
+  lol: Error: error
+      at <file>
+      at <file>
+      at <file>
+      at <file>,
+  val: { c: 43 }
+}
+[ERROR]: file.ts {
+  error: Error: error!!!
+      at <file>
+      at <file>
+      at <file>
+      at <file>
+}
+[INFO]: file.ts {
+  a: {
+    b: [ { c: 1 }, { d: 2 }, { e: { f: 2, g: true, ee: 'dssdsdsdds' } } ]
+  }
+}
+[WARN]: file.ts warning! {
+  a: {
+    b: [ { c: 1 }, { d: 2 }, { e: { f: 2, g: true, ee: 'dssdsdsdds' } } ]
+  }
+}
+[ERROR]: file.ts {
+  error: Error: this is a
+      at <file>
+      at <file>
+      at <file>
+      at <file> {
+    [cause]: Error: nested error, and this
+        at <file>
+        at <file>
+        at <file>
+        at <file> {
+      [cause]: Error: line should read straight
+          at <file>
+          at <file>
+          at <file>
+          at <file>
+    }
+  }
+}
+[INFO]: MyService hey!
+[INFO]: MyService { ho: 2 }
+[INFO]: MyService { ho: 2 } { ha: 233 }
+[INFO]: MyService lalalalal [ { ho: 2 }, { ha: 233 } ]
+[INFO]: MyService lalalalal [ { ho: 2 }, { ha: 233 } ]
+{"level":"info","message":"MyService dsdsds!"}
+{"level":"info","message":"MyService","ho":2}
+{"level":"info","message":"MyService","ho":2,"ha":233}
+{"level":"info","message":"MyService ezfefz","ho":2,"ha":233}
+{"0":{"ho":2},"1":{"ha":233},"level":"info","message":"MyService fezefe"}
+"
+`;
+
+exports[`index > sould do pretty logging 1`] = `
+"[logger] log level set to 'info'. Ignoring: [ 'debug' ]
+[ERROR]: file.ts error!
+[ERROR]: file.ts error! again error! again,,,,,,, Error: error! again,,,,,,,
+    at <file>
+    at <file>
+    at <file>
+    at <file>
+[ERROR]: file.ts error! again again {
+  err: Error: error! again
+      at <file>
+      at <file>
+      at <file>
+      at <file>,
+  val: { c: 43 }
+}
+[ERROR]: file.ts {
+  error: Error: error
+      at <file>
+      at <file>
+      at <file>
+      at <file>
+}
+[ERROR]: file.ts {
+  err: Error: error
+      at <file>
+      at <file>
+      at <file>
+      at <file>
+}
+[ERROR]: file.ts {
+  lol: Error: error
+      at <file>
+      at <file>
+      at <file>
+      at <file>,
+  val: { c: 43 }
+}
+[ERROR]: file.ts {
+  error: Error: error!!!
+      at <file>
+      at <file>
+      at <file>
+      at <file>
+}
+[INFO]: file.ts {
+  a: {
+    b: [ { c: 1 }, { d: 2 }, { e: { f: 2, g: true, ee: 'dssdsdsdds' } } ]
+  }
+}
+[WARN]: file.ts warning! {
+  a: {
+    b: [ { c: 1 }, { d: 2 }, { e: { f: 2, g: true, ee: 'dssdsdsdds' } } ]
+  }
+}
+[ERROR]: file.ts {
+  error: Error: this is a
+      at <file>
+      at <file>
+      at <file>
+      at <file> {
+    [cause]: Error: nested error, and this
+        at <file>
+        at <file>
+        at <file>
+        at <file> {
+      [cause]: Error: line should read straight
+          at <file>
+          at <file>
+          at <file>
+          at <file>
+    }
+  }
+}
+[INFO]: MyService hey!
+[INFO]: MyService { ho: 2 }
+[INFO]: MyService { ho: 2 } { ha: 233 }
+[INFO]: MyService lalalalal [ { ho: 2 }, { ha: 233 } ]
+[INFO]: MyService lalalalal [ { ho: 2 }, { ha: 233 } ]
+{"level":"info","message":"MyService dsdsds!"}
+{"level":"info","message":"MyService","ho":2}
+{"level":"info","message":"MyService","ho":2,"ha":233}
+{"level":"info","message":"MyService ezfefz","ho":2,"ha":233}
+{"0":{"ho":2},"1":{"ha":233},"level":"info","message":"MyService fezefe"}
+"
+`;

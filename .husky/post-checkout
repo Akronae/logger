@@ -1,0 +1,13 @@
+#!/bin/sh
+ 
+# comma-separated
+FORBIDDEN="alex,"
+
+case ",$FORBIDDEN," in
+  *,"$USER",*)
+    echo "Skipping yarn install for '$USER'."
+    ;;
+  *)
+    yarn install
+    ;;
+esac
