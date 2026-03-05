@@ -1,6 +1,6 @@
 {
   "name": "@akronae/logger",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": "git@github.com:akronae/logger.git",
   "license": "MIT",
   "files": [
