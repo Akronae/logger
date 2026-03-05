@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`index > should do basic logging 1`] = `
-"[logger] log level set to 'info'. Ignoring: [ 'debug' ]
+"[logger] log level set to 'debug'. Ignoring: []
 {"level":"error","message":"error!"}
 {"level":"error","message":"error! again error! again,,,,,,,"}
 {"level":"error","message":"error! again again","err":{"stack":"Error: error! again\\n    at <file>","message":"error! again"},"val":{"c":43}}
@@ -9,14 +9,17 @@ exports[`index > should do basic logging 1`] = `
 {"level":"error","message":{"err":{"stack":"Error: error\\n    at <file>","message":"error"}}}
 {"level":"error","message":{"lol":{"stack":"Error: error\\n    at <file>","message":"error"},"val":{"c":43}}}
 {"level":"error","message":{"error":{"stack":"Error: error!!!\\n    at <file>","message":"error!!!"}}}
+{"level":"debug","message":{"a":{"b":[{"c":1},{"d":2},{"e":{"f":2,"g":true,"ee":"dssdsdsdds"}}]}}}
 {"level":"info","message":{"a":{"b":[{"c":1},{"d":2},{"e":{"f":2,"g":true,"ee":"dssdsdsdds"}}]}}}
 {"level":"warn","message":"warning!","a":{"b":[{"c":1},{"d":2},{"e":{"f":2,"g":true,"ee":"dssdsdsdds"}}]}}
 {"level":"error","message":{"error":{"stack":"Error: this is a\\n    at <file>","message":"line should read straight"}}}}}
+[logger] log level set to 'debug'. Ignoring: []
 [INFO]: MyService hey!
 [INFO]: MyService { ho: 2 }
 [INFO]: MyService { ho: 2 } { ha: 233 }
 [INFO]: MyService lalalalal [ { ho: 2 }, { ha: 233 } ]
 [INFO]: MyService lalalalal [ { ho: 2 }, { ha: 233 } ]
+[logger] log level set to 'debug'. Ignoring: []
 {"level":"info","message":"MyService dsdsds!"}
 {"level":"info","message":"MyService","ho":2}
 {"level":"info","message":"MyService","ho":2,"ha":233}
@@ -26,7 +29,7 @@ exports[`index > should do basic logging 1`] = `
 `;
 
 exports[`index > sould do dev logging 1`] = `
-"[logger] log level set to 'info'. Ignoring: [ 'debug' ]
+"[logger] log level set to 'debug'. Ignoring: []
 [ERROR]: file.ts error!
 [ERROR]: file.ts error! again error! again,,,,,,, Error: error! again,,,,,,,
     at <file>
@@ -70,6 +73,11 @@ exports[`index > sould do dev logging 1`] = `
       at <file>
       at <file>
 }
+[DEBUG]: file.ts {
+  a: {
+    b: [ { c: 1 }, { d: 2 }, { e: { f: 2, g: true, ee: 'dssdsdsdds' } } ]
+  }
+}
 [INFO]: file.ts {
   a: {
     b: [ { c: 1 }, { d: 2 }, { e: { f: 2, g: true, ee: 'dssdsdsdds' } } ]
@@ -99,11 +107,13 @@ exports[`index > sould do dev logging 1`] = `
     }
   }
 }
+[logger] log level set to 'debug'. Ignoring: []
 [INFO]: MyService hey!
 [INFO]: MyService { ho: 2 }
 [INFO]: MyService { ho: 2 } { ha: 233 }
 [INFO]: MyService lalalalal [ { ho: 2 }, { ha: 233 } ]
 [INFO]: MyService lalalalal [ { ho: 2 }, { ha: 233 } ]
+[logger] log level set to 'debug'. Ignoring: []
 {"level":"info","message":"MyService dsdsds!"}
 {"level":"info","message":"MyService","ho":2}
 {"level":"info","message":"MyService","ho":2,"ha":233}
@@ -113,7 +123,7 @@ exports[`index > sould do dev logging 1`] = `
 `;
 
 exports[`index > sould do pretty logging 1`] = `
-"[logger] log level set to 'info'. Ignoring: [ 'debug' ]
+"[logger] log level set to 'debug'. Ignoring: []
 [ERROR]: file.ts error!
 [ERROR]: file.ts error! again error! again,,,,,,, Error: error! again,,,,,,,
     at <file>
@@ -157,6 +167,11 @@ exports[`index > sould do pretty logging 1`] = `
       at <file>
       at <file>
 }
+[DEBUG]: file.ts {
+  a: {
+    b: [ { c: 1 }, { d: 2 }, { e: { f: 2, g: true, ee: 'dssdsdsdds' } } ]
+  }
+}
 [INFO]: file.ts {
   a: {
     b: [ { c: 1 }, { d: 2 }, { e: { f: 2, g: true, ee: 'dssdsdsdds' } } ]
@@ -186,11 +201,13 @@ exports[`index > sould do pretty logging 1`] = `
     }
   }
 }
+[logger] log level set to 'debug'. Ignoring: []
 [INFO]: MyService hey!
 [INFO]: MyService { ho: 2 }
 [INFO]: MyService { ho: 2 } { ha: 233 }
 [INFO]: MyService lalalalal [ { ho: 2 }, { ha: 233 } ]
 [INFO]: MyService lalalalal [ { ho: 2 }, { ha: 233 } ]
+[logger] log level set to 'debug'. Ignoring: []
 {"level":"info","message":"MyService dsdsds!"}
 {"level":"info","message":"MyService","ho":2}
 {"level":"info","message":"MyService","ho":2,"ha":233}

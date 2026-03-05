@@ -11,27 +11,27 @@ import {
 export * as transports from '@/src/transports';
 export { Logger } from 'winston';
 
-const isDev =
-  process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test';
-const level = (process.env.LOG_LEVEL as string) ?? 'info';
-const format = process.env.LOG_FORMAT ?? (isDev ? 'pretty' : 'json');
-
-if (!process.env.APP_NAME) {
-  const pkg = JSON.parse(readFileSync('package.json', 'utf-8'));
-  const project = (pkg.name as string)?.replace(/@.*\//, '');
-  process.env.APP_NAME = project;
-}
-
-const levels = ['debug', 'info', 'warn', 'error'];
-if (!levels.includes(level)) {
-  throw new Error(`Invalid log level: '${level}'`);
-}
-console.log(
-  `[${process.env.APP_NAME}] log level set to '${level}'. Ignoring:`,
-  levels.slice(0, levels.indexOf(level))
-);
-
 export function createLogger(options?: LoggerOptions) {
+  const isDev =
+    process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test';
+  const level = (process.env.LOG_LEVEL as string) ?? 'info';
+  const format = process.env.LOG_FORMAT ?? (isDev ? 'pretty' : 'json');
+
+  if (!process.env.APP_NAME) {
+    const pkg = JSON.parse(readFileSync('package.json', 'utf-8'));
+    const project = (pkg.name as string)?.replace(/@.*\//, '');
+    process.env.APP_NAME = project;
+  }
+
+  const levels = ['debug', 'info', 'warn', 'error'];
+  if (!levels.includes(level)) {
+    throw new Error(`Invalid log level: '${level}'`);
+  }
+  console.log(
+    `[${process.env.APP_NAME}] log level set to '${level}'. Ignoring:`,
+    levels.slice(0, levels.indexOf(level))
+  );
+
   return winstonCreateLogger({
     level,
     transports: filterFalsy([
@@ -57,10 +57,15 @@ export type AirLogger = Logger & {
 
 let instance: AirLogger | null = null;
 
+export function reloadLogger() {
+  instance = createLogger() as AirLogger;
+  return instance;
+}
+
 const proxy = new Proxy<AirLogger>({} as AirLogger, {
   get(_target, prop) {
     if (!instance) {
-      instance = createLogger() as AirLogger;
+      instance = reloadLogger();
     }
 
     if (prop === 'error') {
